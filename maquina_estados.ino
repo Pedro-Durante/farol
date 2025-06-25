@@ -111,6 +111,7 @@ unsigned int dist = distMedia;
 void executarAcao(int acao){
   if (acao == A01){
     SerialBT.println("Sistema Ativado");
+    tmr.toggle(true);
     digitalWrite(led_pin, HIGH);
     digitalWrite(led_pin2, HIGH);
     digitalWrite(led_pin3, HIGH);
@@ -119,11 +120,12 @@ void executarAcao(int acao){
   }
   if (acao == A02){
     SerialBT.println("Sistema Desativado");
-    digitalWrite(led_pin, LOW);
-    digitalWrite(led_pin2, LOW);
-    digitalWrite(led_pin3, LOW);
-    digitalWrite(led_pin4, LOW);
-    digitalWrite(led_pin5, LOW);
+    tmr.toggle(false);
+    //digitalWrite(led_pin, LOW);
+    //digitalWrite(led_pin2, LOW);
+    //digitalWrite(led_pin3, LOW);
+    //digitalWrite(led_pin4, LOW);
+    //digitalWrite(led_pin5, LOW);
   }
   if (acao == A04){
     if (estado == ativoBaixa){

@@ -7,9 +7,11 @@ class TimerInterno: public Timer {
     public:
     TimerInterno();
     void init();
+    void toggle(int estado);
     int timeout();
 
     private:
+    int controle;
     unsigned long horaInicio;
 };
 

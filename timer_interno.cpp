@@ -4,16 +4,24 @@
 #include "timer_interno.h"
 #define tempo 500
 TimerInterno::TimerInterno()
-{}
+{
+    controle = false;
+}
 
 void TimerInterno::init()
 {
     horaInicio = millis();
+    controle = true;
+}
+void TimerInterno::toggle(int estado){
+    controle = estado;
 }
 
 int TimerInterno::timeout()
-{
-    if (millis() - horaInicio > tempo){
+{   if (controle == 0){
+        return false;
+    }
+    else if (millis() - horaInicio > tempo){
       horaInicio = millis();
         return true;
     }
